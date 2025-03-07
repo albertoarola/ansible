@@ -1,0 +1,38 @@
+# create_user.yml
+---
+- name: Setup new user on droplet
+  hosts: hosts
+  become: true
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Create a new user
+      user:
+        name: "{{ user_name }}"
+        password: "{{ user_password | password_hash('sha512') }}"
+        shell: /bin/bash
+        state: present
+
+    - name: Add the user to the sudo group
+      user:
+        name: "{{ user_name }}"
+        groups: sudo
+        append: true
+
+    - name: Install the user's SSH public key
+      authorized_key:
+        user: "{{ user_name }}"
+        state: present
+        key: "{{ lookup('file', public_key_path) }}"
+
+    - name: Disable root login in SSH config
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^PermitRootLogin'
+        line: 'PermitRootLogin no'
+
+    - name: Restart SSH service to apply changes
+      service:
+        name: ssh
+        state: restarted

@@ -1,0 +1,12 @@
+---
+- name: Create inventory.ini file
+  hosts: localhost
+  become: yes
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Create inventory from template
+      template:
+        src: "inventory.ini.j2"
+        dest: "inventory.ini"
