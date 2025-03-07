@@ -7,7 +7,9 @@ This project automates the process of setting up a new user on a DigitalOcean dr
 
 **Ansible**: You need to have Ansible installed on your local machine:
 
-   ```sudo apt install ansible -y```
+   ```
+   sudo apt install ansible -y
+   ```
 
 ## How It Works
 This repository consists of three main files:
@@ -24,7 +26,6 @@ Example of vars.yml:
 
 
 ```
-yml # vars.yml
 user_name: "newuser"  # The username of the new user to be created
 user_password: "secure_password"  # The password for the new user
 root_user: "root"  # The root user (default for DigitalOcean droplets)
