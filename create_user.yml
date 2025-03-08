@@ -1,4 +1,3 @@
-# create_user.yml
 ---
 - name: Setup new user on droplet
   hosts: hosts

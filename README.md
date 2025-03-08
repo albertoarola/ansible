@@ -19,8 +19,13 @@ This repository consists of three main files:
 * **inventory.ini.j2**: A Jinja2 template for generating an Ansible inventory file.
 
 ## Setup
-1. Create a vars.yml File
-Before running the playbooks, you need to create a vars.yml file where you will define the required variables.
+1. Clone the repository
+```
+git clone https://github.com/albertoarola/ansible.git
+cd ansible
+```
+2. Create a *vars.yml* File
+Before running the playbooks, you need to create a *vars.yml* file where you will define the required variables.
 
 Example of vars.yml:
 
@@ -37,20 +42,23 @@ droplet_ip: "your_droplet_ip"  # The IP address of the droplet
 
 Note: Make sure to replace the placeholder values with your actual droplet details.
 
-2. Create the Ansible Inventory File
-To generate the inventory.ini file, run the following command:
+3. Create the Ansible Inventory File
+To generate the *inventory.ini* file, run the following command:
 
 ```
 ansible-playbook create_inventory.yml
 ```
 
-3. Run the Playbook to Setup the User
-After creating the inventory.ini file, run the playbook to configure the droplet with the new user:
+4. Run the Playbook to Setup the User
+After creating the *inventory.ini* file, run the playbook to configure the droplet with the new user:
 
 ```
-ansible-playbook -i inventory.ini playbook.yml
+ansible-playbook -i inventory.ini create_user.yml
 
 ```
-This will:
-
+This will: \
+\
 Create the user specified in vars.yml, add the user to the sudo group, install the SSH public key for the user to allow SSH login, disable root login in the SSH configuration, and restart the SSH service to apply the changes.
+
+## Neext times
+The next times you need to create the user for a new droplet, the only thing you have to do is to change the IP address in *invetory.ini.j2* with the new IP and execute the two ```ansible-playbook``` commands

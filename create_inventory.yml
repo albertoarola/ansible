@@ -1,7 +1,7 @@
 ---
 - name: Create inventory.ini file
   hosts: localhost
-  become: yes
+  become: true
   vars_files:
     - vars.yml
 
