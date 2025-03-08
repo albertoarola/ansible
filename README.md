@@ -1,7 +1,7 @@
 
 # Digial Ocean user setup automation
 
-This project automates the process of setting up a new user on a DigitalOcean droplet. By default, when creating a droplet, SSH access is only available as the root user. This project helps you automate the creation of a new user, adding it to the sudo group, installing an SSH key for the user to access the server and disabling the SSH root login.
+This project automates the process of setting up a new user on a DigitalOcean droplet. By default, when creating a droplet, SSH access is only available as the root user. This project helps you automate the creation of a new user, adding it to the sudo group, installing an SSH key for the user to access the server and disabling the SSH root login. Additionally this project automates the SSH hardnening for Ubuntu 22.04 LTS according to this guide: https://www.sshaudit.com/hardening_guides.html#ubuntu_22_04_lts
 
 ## Prerequisites
 
@@ -17,6 +17,7 @@ This repository consists of three main files:
 * **create_inventory.yml**: Creates an inventory file for Ansible.
 * **playbook.yml**: Automates the user setup on the droplet (creating a user, adding it to the sudo group, setting up an SSH key, disabling SSH root login, and restarting the SSH service).
 * **inventory.ini.j2**: A Jinja2 template for generating an Ansible inventory file.
+* * **ssh_hardening.yml**: Automates the SSH hardening for Ubuntu 22.04 LTS
 
 ## Setup
 1. Create a new droplet on Digital Ocean and retrieve IP pubblc address
@@ -46,13 +47,18 @@ Note: Make sure to replace the placeholder values with your actual droplet detai
 ansible-playbook create_inventory.yml
 ```
 
-5. Run the Playbook to Setup the User
+5. Run the **create_user.yml** Playbook to Setup the User
 ```
 ansible-playbook -i inventory.ini create_user.yml
 ```
+6. Run the **ssh_hardening.yml** Playbook to hardening SSH
+```
+ansible-playbook -i inventori.ini ssh_hardening.yml --ask-become-pass
+```
+Note: You will be asked to enter the new user's password so it can run some commands as root on the droplet. \
 This will: \
 \
-Create the user specified in **vars.yml**, add the user to the sudo group, install the SSH public key for the user to allow SSH login, disable root login in the SSH configuration and restart the SSH service to apply the changes.
+Create the user specified in **vars.yml**, add the user to the sudo group, install the SSH public key for the user to allow SSH login, disable root login in the SSH configuration, hardening SSH and restart the SSH service to apply the changes.
 
 ## Next times
-The next times you need to create the user for a new droplet the only thing you have to do is to change the IP address in your **vars.yml** with the new droplet IP and execute the two ```ansible-playbook``` commands
+The next times you need to create the user for a new droplet and hardening the SSH protocol the only thing you have to do is to change the IP address in your **vars.yml** with the new droplet IP and execute the three ```ansible-playbook``` commands
