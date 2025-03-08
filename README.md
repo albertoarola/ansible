@@ -27,8 +27,10 @@ git clone https://github.com/albertoarola/ansible.git
 cd ansible
 ```
 3. Create a **vars.yml** File
-Before running the playbooks, you need to create a **vars.yml** file where you will define the required variables.
+Before running the playbooks, you need to create a **vars.yml** file where you will define the required variables in this way:
 ```
+#vars.yml
+
 user_name: "newuser"  # The username of the new user to be created
 user_password: "secure_password"  # The password for the new user
 root_user: "root"  # The root user (default for DigitalOcean droplets)
