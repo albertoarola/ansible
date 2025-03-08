@@ -50,7 +50,7 @@ ansible-playbook -i inventory.ini create_user.yml
 ```
 This will: \
 \
-Create the user specified in **vars.yml**, add the user to the sudo group, install the SSH public key for the user to allow SSH login, disable root login in the SSH configuration, and restart the SSH service to apply the changes.
+Create the user specified in **vars.yml**, add the user to the sudo group, install the SSH public key for the user to allow SSH login, disable root login in the SSH configuration and restart the SSH service to apply the changes.
 
 ## Next times
-The next times you need to create the user for a new droplet, the only thing you have to do is to change the IP address in your **vars.yml** with the new IP and execute the two ```ansible-playbook``` commands
+The next times you need to create the user for a new droplet the only thing you have to do is to change the IP address in your **vars.yml** with the new droplet IP and execute the two ```ansible-playbook``` commands
