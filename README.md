@@ -56,7 +56,6 @@ After creating the **inventory.ini** file, run the playbook to configure the dro
 
 ```
 ansible-playbook -i inventory.ini create_user.yml
-
 ```
 This will: \
 \
