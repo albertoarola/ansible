@@ -28,10 +28,6 @@ cd ansible
 ```
 4. Create a *vars.yml* File
 Before running the playbooks, you need to create a *vars.yml* file where you will define the required variables.
-
-&nbsp;Example of vars.yml:
-
-
 ```
 user_name: "newuser"  # The username of the new user to be created
 user_password: "secure_password"  # The password for the new user
@@ -44,16 +40,12 @@ droplet_ip: "your_droplet_ip"  # The IP address of the droplet
 
 Note: Make sure to replace the placeholder values with your actual droplet details.
 
-4. Create the Ansible Inventory File
-To generate the **inventory.ini** file, run the following command:
-
+4. Create the Ansible Inventory File called **inventory.ini** by executing the following command
 ```
 ansible-playbook create_inventory.yml
 ```
 
 5. Run the Playbook to Setup the User
-After creating the **inventory.ini** file, run the playbook to configure the droplet with the new user:
-
 ```
 ansible-playbook -i inventory.ini create_user.yml
 ```
