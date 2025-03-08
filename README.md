@@ -56,6 +56,8 @@ ansible-playbook -i inventory.ini create_user.yml
 ansible-playbook -i inventori.ini ssh_hardening.yml --ask-become-pass
 ```
 Note: You will be asked to enter the new user's password so it can run some commands as root on the droplet. \
+\
+
 This will: \
 \
 Create the user specified in **vars.yml**, add the user to the sudo group, install the SSH public key for the user to allow SSH login, disable root login in the SSH configuration, hardening SSH and restart the SSH service to apply the changes. \
