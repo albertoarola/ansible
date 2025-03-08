@@ -22,14 +22,14 @@ This repository consists of three main files:
 1. Create a new droplet on Digital Ocean and retrieve IP pubblc address
 
 2. Clone the repository
-&nbsp;```
+```
 git clone https://github.com/albertoarola/ansible.git
 cd ansible
 ```
 4. Create a *vars.yml* File
 Before running the playbooks, you need to create a *vars.yml* file where you will define the required variables.
 
-Example of vars.yml:
+&nbsp;Example of vars.yml:
 
 
 ```
