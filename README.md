@@ -35,7 +35,6 @@ root_user: "root"  # The root user (default for DigitalOcean droplets)
 public_key_path: "/path/to/public_key"  # Path to the public SSH key to be installed for the new user
 private_key_path: "/path/to/private_key"  # Path to the private SSH key for root (used for initial access)
 droplet_ip: "your_droplet_ip"  # The IP address of the droplet
-
 ```
 
 Note: Make sure to replace the placeholder values with your actual droplet details.
@@ -54,4 +53,4 @@ This will: \
 Create the user specified in **vars.yml**, add the user to the sudo group, install the SSH public key for the user to allow SSH login, disable root login in the SSH configuration, and restart the SSH service to apply the changes.
 
 ## Next times
-The next times you need to create the user for a new droplet, the only thing you have to do is to change the IP address in **invetory.ini.j2** with the new IP and execute the two ```ansible-playbook``` commands
+The next times you need to create the user for a new droplet, the only thing you have to do is to change the IP address in your **vars.yml** with the new IP and execute the two ```ansible-playbook``` commands
