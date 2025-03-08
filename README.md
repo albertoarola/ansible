@@ -26,8 +26,8 @@ This repository consists of three main files:
 git clone https://github.com/albertoarola/ansible.git
 cd ansible
 ```
-4. Create a *vars.yml* File
-Before running the playbooks, you need to create a *vars.yml* file where you will define the required variables.
+4. Create a **vars.yml** File
+Before running the playbooks, you need to create a **vars.yml** file where you will define the required variables.
 ```
 user_name: "newuser"  # The username of the new user to be created
 user_password: "secure_password"  # The password for the new user
