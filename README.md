@@ -1,7 +1,7 @@
 
 # Digial Ocean user setup automation
 
-This project automates the process of setting up a new user on a DigitalOcean droplet. By default, when creating a droplet, SSH access is only available as the root user. This project helps you automate the creation of a new user, adding them to the sudo group, and installing an SSH key for the user to access the server.
+This project automates the process of setting up a new user on a DigitalOcean droplet. By default, when creating a droplet, SSH access is only available as the root user. This project helps you automate the creation of a new user, adding it to the sudo group, installing an SSH key for the user to access the server and disabling the SSH root login.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ This project automates the process of setting up a new user on a DigitalOcean dr
 This repository consists of three main files:
 
 * **create_inventory.yml**: Creates an inventory file for Ansible.
-* **playbook.yml**: Automates the user setup on the droplet (creating a user, adding them to the sudo group, setting up an SSH key, disabling root login, and restarting the SSH service).
+* **playbook.yml**: Automates the user setup on the droplet (creating a user, adding it to the sudo group, setting up an SSH key, disabling SSH root login, and restarting the SSH service).
 * **inventory.ini.j2**: A Jinja2 template for generating an Ansible inventory file.
 
 ## Setup
