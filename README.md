@@ -25,7 +25,7 @@ This repository consists of three main files:
 &nbsp;```
 git clone https://github.com/albertoarola/ansible.git
 cd ansible
-&nbsp;```
+```
 4. Create a *vars.yml* File
 Before running the playbooks, you need to create a *vars.yml* file where you will define the required variables.
 
