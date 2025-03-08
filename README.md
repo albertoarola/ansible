@@ -55,7 +55,7 @@ ansible-playbook -i inventory.ini create_user.yml
 ```
 ansible-playbook -i inventori.ini ssh_hardening.yml --ask-become-pass
 ```
-Note: You will be asked to enter the new user's password so it can run some commands as root on the droplet. After the whole procedure in your **.ssh** directory remember to erase the old keys of the remote host in the files **known_hosts** and **known_hosts.old**
+Note: You will be asked to enter the new user's password so it can run some commands as root on the droplet. After the whole procedure in your **.ssh** directory remember to erase the old keys of the remote host in the **known_hosts** and **known_hosts.old** files
 
 ## Next times
 The next times you need to create the user for a new droplet and hardening the SSH protocol the only thing you have to do is to change the IP address in your **vars.yml** with the new droplet IP and execute the three ```ansible-playbook``` commands
