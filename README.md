@@ -8,7 +8,7 @@ This project automates the process of setting up a new user on a DigitalOcean dr
 **Ansible**: You need to have Ansible installed on your local machine:
 
    ```
-   sudo apt install ansible -y
+   sudo apt update && sudo apt install ansible -y
    ```
 
 ## How It Works
@@ -17,7 +17,7 @@ This repository consists of three main files:
 * **create_inventory.yml**: Creates an inventory file for Ansible.
 * **playbook.yml**: Automates the user setup on the droplet (creating a user, adding it to the sudo group, setting up an SSH key, disabling SSH root login, and restarting the SSH service).
 * **inventory.ini.j2**: A Jinja2 template for generating an Ansible inventory file.
-* * **ssh_hardening.yml**: Automates the SSH hardening for Ubuntu 22.04 LTS
+* **ssh_hardening.yml**: Automates the SSH hardening for Ubuntu 22.04 LTS
 
 ## Setup
 1. Create a new droplet on Digital Ocean and retrieve IP pubblc address
